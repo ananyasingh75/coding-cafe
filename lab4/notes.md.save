@@ -1,0 +1,172 @@
+
+
+cat > lab4/notes.md << 'EOF'
+# Lab 4 Notes
+
+1. --global saves the setting for every repository on my computer (in ~/.gitconfig). Without it, the setting would only apply to the repository I am currently in.
+
+2. A hidden folder called .git appeared. It stores the repository's history, commits and settings.
+
+3. Git offered to track only 2 items: README.md and week02/. Nothing looked like code I did not write, since I have no .venv folder.
+
+4. Nothing disappeared, because I did not have a .venv folder. The only change was that .gitignore appeared as a new untracked file.
+
+5. It should be committed, so that everyone who uses the repository ignores the same junk files.
+
+6. README.md moved from "Untracked files" to "Changes to be committed". It went from the working directory to the staging area.
+
+7. Git printed the commit hash 07c51ff and said 3 files changed, 4 insertions, listing .gitignore, README.md and week02/notes.md.
+
+8. They are the short commit hash. It is a unique ID used to refer to that specific commit.
+EOF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Last login: Sat Oct 10 01:12:55 on ttys000
+mac@macs-MacBook-Air ~ % gh --version
+gh version 2.102.0 (2026-09-30)
+https://github.com/cli/cli/releases/tag/v2.102.0
+mac@macs-MacBook-Air ~ % git config --global user.name "Your Name"
+git config --global user.email "your.email@plaksha.edu.in"
+git config --global --list
+user.name=Your Name
+user.email=your.email@plaksha.edu.in
+mac@macs-MacBook-Air ~ % git config --global user.name "Ananya Singh"
+git config --global user.email "ananya.singh.ug26@plaksha.edu.in"
+mac@macs-MacBook-Air ~ % git config --global --list
+user.name=Ananya Singh
+user.email=ananya.singh.ug26@plaksha.edu.in
+mac@macs-MacBook-Air ~ % cd ~/coding-cafe
+git init
+ls
+ls -a
+git status
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /Users/mac/coding-cafe/.git/
+README.md	week01		week02
+.		.git		week01
+..		README.md	week02
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+	week02/
+
+nothing added to commit but untracked files present (use "git add" to track)
+mac@macs-MacBook-Air coding-cafe % git branch -m main
+git config --global init.defaultBranch main
+mac@macs-MacBook-Air coding-cafe % git branch -m main
+git config --global init.defaultBranch mainprintf ".venv/\n__pycache__/\n*.pyc\n.DS_Store\n" > .gitignore
+cat .gitignore
+git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+	README.md
+	week02/
+
+nothing added to commit but untracked files present (use "git add" to track)
+mac@macs-MacBook-Air coding-cafe % 
+mac@macs-MacBook-Air coding-cafe % 
+mac@macs-MacBook-Air coding-cafe % git config --global init.defaultBranch main
+warning: init.defaultbranch has multiple values
+error: cannot overwrite multiple values with a single value
+       Use a regexp, --add or --replace-all to change init.defaultBranch.
+mac@macs-MacBook-Air coding-cafe % printf ".venv/\n__pycache__/\n*.pyc\n.DS_Store\n" > .gitignore
+mac@macs-MacBook-Air coding-cafe % cat .gitignore
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+mac@macs-MacBook-Air coding-cafe % git config --global --replace-all init.defaultBranch main
+mac@macs-MacBook-Air coding-cafe % git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+	README.md
+	week02/
+
+nothing added to commit but untracked files present (use "git add" to track)
+mac@macs-MacBook-Air coding-cafe % git add README.md
+mac@macs-MacBook-Air coding-cafe % git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+	week02/
+
+mac@macs-MacBook-Air coding-cafe % git add .
+mac@macs-MacBook-Air coding-cafe % git commit -m "Lab work so far"
+[main (root-commit) 07c51ff] Lab work so far
+ 3 files changed, 4 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 week02/notes.md
+mac@macs-MacBook-Air coding-cafe % git log --oneline
+07c51ff (HEAD -> main) Lab work so far
+mac@macs-MacBook-Air coding-cafe % mkdir -p lab4
+mac@macs-MacBook-Air coding-cafe % nano lab4/notes.md
+
+  GNU nano 2.0.6             File: lab4/notes.md                      Modified  
+
+
+4. Nothing disappeared, because I did not have a .venv folder. The only change $
+
+5. It should be committed, so that everyone who uses the repository ignores the$
+
+6. README.md moved from "Untracked files" to "Changes to be committed". It went$
+
+7. Git printed the commit hash 07c51ff and said 3 files changed, 4 insertions, $
+
+8. They are the short commit hash. It is a unique ID used to refer to that spec$
+EOF
+
+
+
+
+
+
+
+
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
+^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spell
+
